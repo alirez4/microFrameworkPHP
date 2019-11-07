@@ -1,6 +1,7 @@
 <?php
 include "autoload.php";
-include "Core/Config/env.php";
+
+$definer = new \Core\Config\Definer();
 
 $request = new Request();
 

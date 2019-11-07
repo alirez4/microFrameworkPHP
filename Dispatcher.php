@@ -5,16 +5,21 @@ class Dispatcher
 {
     public $request;
     public $url;
+    public $userAgent;
 
     //Dependency Injection
     public function __construct(Request $request)
     {
+        $this->userAgent = $_SERVER['HTTP_USER_AGENT'];
         $this->request = $request;
         $this->url = trim($this->request->url, "/");
     }
 
     public function dispatch()
     {
+        $log = new \Core\Log($this->url , $this->userAgent);
+        $log->addLogFile();
+
         Route::web($this->url, $this->request);
 
         //call controller
