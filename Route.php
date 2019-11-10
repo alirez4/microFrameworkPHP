@@ -17,4 +17,9 @@ class Route
         }
 
     }
+
+//    public static function add($pattern, $request, $params)
+//    {
+//        pass;
+//    }
 }

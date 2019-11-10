@@ -1,5 +1,6 @@
 <?php
 
+use Core\Log;
 
 class Dispatcher
 {
@@ -17,10 +18,9 @@ class Dispatcher
 
     public function dispatch()
     {
-        $log = new \Core\Log($this->url , $this->userAgent);
+        //Save Log in files
+        $log = new Log($this->url, $this->userAgent);
         $log->addLogFile();
-
-        Route::web($this->url, $this->request);
 
         //call controller
         $controller = $this->loadController();
@@ -36,13 +36,12 @@ class Dispatcher
     {
         //create controller namespace
         $controllerAddress = "\App\Controllers\\";
-        $controllerPrefix = "Controller";
 
         //fully qualified controller name
-        $controllerName = $controllerAddress . $this->request->Controller . $controllerPrefix;
+        $controllerName = $controllerAddress . $this->request->Controller;
 
         //controller file address
-        $fileAddress = BASE_DIR . "App/Controllers/" . $this->request->Controller . "Controller.php";
+        $fileAddress = BASE_DIR . "App/Controllers/" . $this->request->Controller . ".php";
         $fileAddress = str_replace("\\", DIRECTORY_SEPARATOR, $fileAddress);
 
         //include controller
