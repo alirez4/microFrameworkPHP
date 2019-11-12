@@ -54,10 +54,12 @@ class Dispatcher
 
     public function show($data)
     {
-        echo "<br>";
+        //return string for view
         if ($data[1] == "str") {
             echo $data[0];
-        } elseif ($data[1] == "array") {
+        }
+        //return array
+        elseif ($data[1] == "array") {
             $i = 1;
             $myObj = new stdClass();
             foreach ($data[0] as $value) {

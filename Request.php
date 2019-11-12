@@ -15,8 +15,6 @@ class Request
 
     public function add($patern, $method, array $params = null)
     {
-        var_dump($this->url);
-
         if ($patern == $this->url) {
 
             $method = explode("@", $method);
@@ -24,10 +22,6 @@ class Request
             $this->Controller = $method[0];
             $this->Method = $method[1];
             $this->Params = $params == null ? array() : $params;
-
-
-            var_dump($this->Controller);
-            var_dump($this->Method);
 
         }
     }

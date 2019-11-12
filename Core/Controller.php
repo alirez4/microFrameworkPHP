@@ -4,7 +4,6 @@ namespace Core;
 
 class Controller
 {
-
     /** identify $data and send to sho it
      * @param $data
      * @param $type

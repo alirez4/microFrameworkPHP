@@ -1,3 +1,3 @@
 <?php
 
-$request->add("/" , "HomeController@index" , ["name" => "alirez4"]);
+$request->add("/", "HomeController@index", ["name" => "alirez4"]);

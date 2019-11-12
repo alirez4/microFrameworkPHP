@@ -17,10 +17,10 @@ class Log
      */
     public function __construct($url, $userAgent)
     {
+        //set url in log url variable
         $this->setUrl(ltrim($url, "/"));
+        //set useragent in log UserAgent variable
         $this->setUserAgent($userAgent);
-//        var_dump(BASE_DIR);
-//        var_dump($this->getUrl());
 
         $this->fileHandle = fopen(rtrim(BASE_DIR, "/") . LOG_PATH, 'a+');
     }
